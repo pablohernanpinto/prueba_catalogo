@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="modal-header">
+        <span id="closeModal" class="close"> &times;</span>
+        <h2>Modificar producto</h2>
+    </div>
+
+    <div class=modalContenedor>
+        <form id="putProducto">
+
+            <label class="inp">
+                <input type="text" id="nombre" name="nombre" placeholder="&nbsp;">
+                <span class="label">Nombre producto</span>
+                <span class="focus-bg"></span>
+            </label>
+
+            <label class="inp">
+                <input type="number" id="precio" name="precio" placeholder="&nbsp;">
+                <span class="label">Precio</span>
+                <span class="focus-bg"></span>
+            </label>
+
+            <div class="agregarImagen">
+                <label>Imagen</label><br><br>
+                <input type="file" name="imagen" id="imagen" accept="image/*"><br>
+
+            </div>
+
+            <div class="contenidoBotonIngreso">
+                <button type="submit">Modificar producto</button>
+            </div>
+        </form>
+
+        <div id="formMessagePUT"></div>
+    </div>
+
+
+
+    <style>
+        .contenidoBotonIngreso {
+            padding-top: 2vh;
+            display: flex;
+            justify-content: end;
+        }
+
+        .contenidoBotonIngreso button {
+
+            border-radius: 15px;
+            background-color: #044c94;
+            padding: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            color: #fff4ec;
+            border-color: #044c94;
+            font-weight: bold;
+
+        }
+
+
+        .contenidoBotonIngreso button:hover {
+            background-color: #fff4ec;
+            color: #044c94;
+            transform: scale(1.05);
+        }
+
+
+        .agregarImagen {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .modalContenedor {
+
+            padding: 15px;
+        }
+
+        .modalContenedor {
+            display: flex;
+            flex-direction: column;
+
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .formatoInput {
+            padding-top: 5px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .modal-header {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            padding: 2px 16px;
+            background-color: #044c94;
+            color: white;
+        }
+
+        .modal-header h2 {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .close {
+            cursor: pointer;
+            font-size: 24px;
+            font-weight: normal;
+        }
+
+        .close strong {
+            font-weight: bold;
+            margin-left: 10px;
+            font-size: 18px;
+        }
+
+        .inp {
+            position: relative;
+            margin: 10px 1px;
+            /* espacio arriba/abajo y a los lados */
+            width: calc(100%);
+            /* casi todo el ancho del modal */
+            max-width: 100%;
+            border-radius: 3px;
+            overflow: hidden;
+            display: block;
+        }
+
+        .inp input {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            border: 0;
+            font-family: Roboto, sans-serif;
+            padding: 12px 10px 4px 10px;
+            /* menos altura */
+            height: 30px;
+            /* más pequeño que antes */
+            font-size: 14px;
+            font-weight: 400;
+            background: rgba(0, 0, 0, 0.02);
+            box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+            color: var(--dark);
+            transition: all 0.15s ease;
+        }
+
+        .inp input:hover {
+            background: rgba(0, 0, 0, 0.04);
+            box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .inp input:focus {
+            background: rgba(0, 0, 0, 0.05);
+            outline: none;
+            box-shadow: inset 0 -2px 0 var(--primary);
+        }
+
+        .inp .label {
+            position: absolute;
+            top: 12px;
+            /* ajustado a la nueva altura */
+            left: 10px;
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.5);
+            font-weight: 500;
+            transform-origin: 0 0;
+            transition: all 0.2s ease;
+            pointer-events: none;
+        }
+
+        .inp input:focus+.label,
+        .inp input:not(:placeholder-shown)+.label {
+            color: var(--primary);
+            transform: translate3d(0, -10px, 0) scale(0.75);
+        }
+
+        .inp .focus-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.05);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: all 0.1s ease;
+        }
+
+        .inp input:focus+.label+.focus-bg {
+            transform: scaleX(1);
+        }
+    </style>
+
+</body>
+
+</html>
